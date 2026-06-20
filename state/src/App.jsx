@@ -5,9 +5,11 @@ const COLORS = ['pink', 'green', 'blue', 'yellow', 'purple'];
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
+  const [clickCount, setClickCount] = useState(0);
 
   const onButtonClick = (color) => () => {
     setBackgroundColor(color);
+    setClickCount(clickCount + 1);
   };
 
   return (
@@ -16,7 +18,7 @@ function App() {
       style={{
         backgroundColor,
       }}
-    >
+    ><div>Clicks: {clickCount}</div>
       {COLORS.map((color) => (
         <button
           type="button"
